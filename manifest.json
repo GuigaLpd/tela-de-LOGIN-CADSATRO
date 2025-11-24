@@ -1,0 +1,13 @@
+{
+  "name": "PWA de Autenticação",
+  "short_name": "AuthPWA",
+  "start_url": "/AuthPWA/",
+  "scope": "/AuthPWA/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2b6cb0",
+  "icons": [
+    { "src": "icons/playstore.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/playstore1.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

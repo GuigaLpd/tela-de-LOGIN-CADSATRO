@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/AuthPWA/manifest.json">
+    <script type="module" src="script-login.js"></script>
+</head>
+<body>
+    <main>
+        <h1>Entrar</h1>
+        <form id="form-login">
+            <label>Email<br><input id="email" type="email" required></label><br>
+            <label>Senha<br><input id="senha" type="password" required></label><br>
+            <button type="submit">Entrar</button>
+        </form>
+        <p><a href="cadastro.html">Criar nova conta</a></p>
+    </main>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').catch(()=>{});
+      }
+    </script>
+
+    <button id="install-btn" hidden>Instalar App</button>
+    <script>
+      let deferredPrompt;
+      const installBtn = document.getElementById('install-btn');
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBtn.hidden = false;
+      });
+
+      installBtn.addEventListener('click', async () => {
+        installBtn.hidden = true;
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt = null;
+      });
+    </script>
+</body>
+</html>

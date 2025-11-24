@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cadastro</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="script-registro.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Cadastro</h1>
+    <form id="form-registro">
+      <label>Email<br><input id="email" type="email" required></label><br>
+      <label>Senha<br><input id="senha" type="password" required minlength="6"></label><br>
+      <button type="submit">Cadastrar</button>
+    </form>
+    <p><a href="index.html">Voltar</a></p>
+  </main>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(()=>{});
+    }
+  </script>
+</body>
+</html>
